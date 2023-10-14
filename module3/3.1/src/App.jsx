@@ -1,14 +1,17 @@
 import {useState} from 'react'
 import Button from './Components/Button'
 import Statistics from './Components/Statistics'
-
+import Loading from './Components/Loading'
 const App = () => {
     const [good,setGood]= useState(0)
     const [neutral, setNeutral]=useState(0)
     const [bad,setBad]= useState(0)
     const [showStatistics, setShowStatistics] = useState(false);
+    const [loading, setLoading] = useState(true);
+    setTimeout(() => setLoading(false), 3000);
 
 
+    if(loading) return <Loading/>
     const setAvis =(avis)=> {
         if(avis==1) setGood(good+1)
         else if(avis==2) setNeutral(neutral+1)
@@ -18,7 +21,9 @@ const App = () => {
     }
 
     return (
+
         <div>
+            
              <h1>Give feedback </h1>
             <Button
                 setAvis={setAvis}
