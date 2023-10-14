@@ -1,8 +1,8 @@
-const Button = ({changeCount, delta, text}) =>{
+const Button = ({changeCount, text, delta}) =>{
     const handleClick = (e) => {
        const  deltaAttribute = e.target.dataset.delta;
-       const delta1 = parseInt(deltaAttribute); 
-        changeCount(delta1 );
+       const delta = parseInt(deltaAttribute); 
+        changeCount(delta);
     }
 
     return(

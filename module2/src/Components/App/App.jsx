@@ -10,11 +10,12 @@ const STORAGE_COUNTER_KEY = "count";
 
 
 const App= ()=>  {
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] = useLocalStorage(localStorage.getItem("count"),0)
   
   const changeCount = (delta) => {
     setCount(count + delta)
+    localStorage.setItem("count", count);
+
   }
   
 
@@ -22,20 +23,21 @@ const App= ()=>  {
     <>
       <div>
         <Display count= {count} />
+        
         <Button
               changeCount={changeCount}
-              text={'plus'}
-              delta={+1}
+              text='plus'
+              delta={1}
         />
         <Button
               changeCount={changeCount}
-              text= {'reset'}
+              text= 'reset'
               delta={-count}
         />
         <Button
               changeCount={changeCount}
-              text= {'moins'}
-              delta={-1}
+              text= 'moins'
+              delta={1}
         />
 
 
