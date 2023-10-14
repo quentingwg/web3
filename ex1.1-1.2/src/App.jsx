@@ -1,6 +1,6 @@
 import Content from "./components/Content/Content"
 import Title  from "./components/Header/Header"
-
+import './index.css';
 const App = () => {
   const course = 'Half Stack application development'
 
